@@ -11,7 +11,7 @@ import { AnimeContext } from '../../navigation/AppNavigation';
 // App landing screen
 const AppLanding = () => {
   const navigation = useNavigation();
-  const { data, isLoading, error, refetch } = useFetchAnimeDetail();
+  const { data, isLoading, refetch } = useFetchAnimeDetail();
   const { animeData, setAnimeData } = useContext(AnimeContext);
 
   // ✅ Set data into context when it becomes available
