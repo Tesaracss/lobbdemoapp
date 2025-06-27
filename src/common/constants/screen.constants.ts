@@ -34,6 +34,7 @@ export type HorizontalTitleCardProps = {
   subtitle: string;
   buttonSubtitle?: string;
   buttonTitle?: string;
+  testID?: string;
 };
 
 export type AnimeItem = {

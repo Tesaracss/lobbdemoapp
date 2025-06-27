@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const titleCardStyles = StyleSheet.create({
   root: {
-    backgroundColor: 'grey',
+    backgroundColor: '#E5E5E5',
     paddingVertical: 15,
   },
   imageStyles: { width: 100, height: 100, borderRadius: 10, margin: 10 },

@@ -1,48 +1,30 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppLanding from '../screens/app-landing';
 import AnimeDetails from '../screens/anime-details';
-import { createContext, useState } from 'react';
-import { AnimeDetailsData } from '../common/constants/screen.constants';
+import { createContext } from 'react';
 import { Route } from '../common/constants/navigation.constants';
+import { useFetchAnimeDetail } from '../api-service/anime-service';
 
 type AnimeContextType = {
-  animeData: AnimeDetailsData | null;
-  setAnimeData: (data: AnimeDetailsData) => void;
+  animeQuery: ReturnType<typeof useFetchAnimeDetail> | undefined;
 };
 const dummyValue: AnimeContextType = {
-  animeData: {
-    content: {
-      thumbNailImage: '',
-      mainImage: '',
-      userName: '',
-      subTitle: '',
-      text: '',
-      logo: '',
-      title: '',
-      id: '',
-    },
-  },
-  setAnimeData: () => {}, // placeholder if needed
+  animeQuery: undefined,
 };
 
 export const AnimeContext = createContext<AnimeContextType>(dummyValue);
 const RootStack = createNativeStackNavigator();
 
+/**
+ * This component renders the navigation stack for the app
+ *
+ * @returns JSX.Element
+ */
 const AppNavigation = () => {
-  const [animeData, setAnimeData] = useState<AnimeDetailsData>({
-    content: {
-      thumbNailImage: '',
-      mainImage: '',
-      userName: '',
-      subTitle: '',
-      text: '',
-      logo: '',
-      title: '',
-      id: '',
-    },
-  });
+  const animeQuery = useFetchAnimeDetail();
+
   return (
-    <AnimeContext.Provider value={{ animeData, setAnimeData }}>
+    <AnimeContext.Provider value={{ animeQuery }}>
       <RootStack.Navigator
         screenOptions={{ headerShown: false }}
         initialRouteName={Route.APP_LANDING}

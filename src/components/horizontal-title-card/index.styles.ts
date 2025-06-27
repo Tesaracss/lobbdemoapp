@@ -25,7 +25,7 @@ const horizontalTileCardStyles = StyleSheet.create({
     borderRadius: 17,
   },
   textDefault: {
-    color: 'blue',
+    color: '#0000CD',
     fontWeight: '700',
     paddingHorizontal: 10,
     paddingVertical: 3,
@@ -45,6 +45,7 @@ const horizontalTileCardStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 5,
+    marginLeft: 2,
   },
   subtitleStyle: {
     fontSize: 10,

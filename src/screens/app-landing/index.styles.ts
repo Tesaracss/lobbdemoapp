@@ -1,13 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const landingScreenStyles = StyleSheet.create({
   root: {
-    margin: 10,
+    margin: 20,
   },
   dateStyles: {
     color: 'grey',
-    fontSize: 20,
-    fontWeight: '400',
+    fontSize: 13,
+    fontWeight: '500',
   },
   dayContainer: {
     flexDirection: 'row',
@@ -23,7 +25,7 @@ const landingScreenStyles = StyleSheet.create({
     padding: 7,
   },
   vsContainer: {
-    backgroundColor: 'grey',
+    backgroundColor: '#DCDCDC',
     borderRadius: 25,
   },
   cardContainer: {
@@ -38,8 +40,10 @@ const landingScreenStyles = StyleSheet.create({
     marginVertical: 12,
   },
   imageStyles: {
-    width: 400,
-    height: 400,
+    width: '100%',
+    height: SCREEN_WIDTH * 0.9, // Makes height proportional to screen width
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   titleCardContainer: {
     padding: 20,

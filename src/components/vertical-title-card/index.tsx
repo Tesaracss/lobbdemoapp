@@ -2,6 +2,18 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './index.styles';
 import { VerticalTitleCardProps } from '../../common/constants/screen.constants';
 
+/**
+ * A vertical card component that displays a logo, title, and subtitle,
+ * along with a button that can trigger a refresh action.
+ * Provides optional customization of button title and subtitle.
+ *
+ * @param {string} logo - The URL of the image to display as a logo.
+ * @param {string} title - The main title text to display on the card.
+ * @param {string} subtitle - The subtitle text to display under the main title.
+ * @param {() => void} [onRefresh] - Optional callback function to be called when the button is pressed.
+ * @param {string} [buttonTitle='REFRESH'] - Optional title for the button.
+ * @param {string} [buttonSubtitle='in App purchase'] - Optional subtitle for the button.
+ */
 const VerticalTitleCard = ({
   logo,
   title,

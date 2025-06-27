@@ -1,17 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const screenHeight = Dimensions.get('window').height;
 
 const animeDetailScreenStyles = StyleSheet.create({
   root: {
-    flex: 1,
     backgroundColor: '#f5f5f5', // fallback bg
+    paddingBottom: '35%',
   },
   overlayContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   imageContainer: {
-    // flex: 1,
-    height: '60%',
+    height: screenHeight * 0.6, // 60% of screen height
+    width: '100%',
   },
   backgroundImage: {
     flex: 1,
@@ -34,7 +36,7 @@ const animeDetailScreenStyles = StyleSheet.create({
     top: 40,
     right: 20,
     zIndex: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#DCDCDC',
     width: 32,
     height: 32,
     borderRadius: 16,

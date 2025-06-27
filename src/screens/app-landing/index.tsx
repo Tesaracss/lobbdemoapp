@@ -1,48 +1,27 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFetchAnimeDetail } from '../../api-service/anime-service';
 import styles from './index.styles';
 import HorizontalTitleCard from '../../components/horizontal-title-card';
 import { useNavigation } from '../../common/hooks/use-navigation'; // custom typed navigation hook
 import { Route } from '../../common/constants/navigation.constants';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AnimeContext } from '../../navigation/AppNavigation';
+import { formatDate } from '../../utils/dateformat';
 
 // App landing screen
 const AppLanding = () => {
   const navigation = useNavigation();
-  const { data, isLoading, refetch } = useFetchAnimeDetail();
-  const { animeData, setAnimeData } = useContext(AnimeContext);
-
-  // ✅ Set data into context when it becomes available
-  useEffect(() => {
-    if (data) {
-      setAnimeData(data);
-    }
-  }, [data, setAnimeData]);
-
-  const formatDate = () => {
-    const date = new Date();
-
-    const parts = new Intl.DateTimeFormat('en-US', {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric',
-    }).formatToParts(date);
-
-    const get = (type: string) =>
-      parts.find(part => part.type === type)?.value || '';
-
-    return `${get('weekday')} ${get('day')} ${get('month')}`;
-  };
-
+  const { animeQuery } = useContext(AnimeContext);
+  const animeData = animeQuery?.data;
   return (
     <SafeAreaView>
-      {isLoading && animeData?.content ? (
+      {animeQuery?.isLoading ? (
         <Text>Loading ...</Text>
       ) : (
         <View style={styles.root}>
-          <Text style={styles.dateStyles}>{formatDate()}</Text>
+          <Text style={styles.dateStyles} testID="date-text">
+            {formatDate()}
+          </Text>
           <View style={styles.dayContainer}>
             <View>
               <Text style={styles.dayStyles}>Today</Text>
@@ -54,10 +33,12 @@ const AppLanding = () => {
           {/* card */}
           <View style={styles.cardContainer}>
             <TouchableOpacity
+              testID="image-card"
               onPress={() => navigation.navigate(Route.ANIME_DETAILS)}
             >
               <Image
-                source={{ uri: data?.content.mainImage }}
+                testID="main-image"
+                source={{ uri: animeData?.content.mainImage }}
                 style={styles.imageStyles}
                 resizeMode="cover"
               />
@@ -65,10 +46,11 @@ const AppLanding = () => {
 
             <View style={styles.titleCardContainer}>
               <HorizontalTitleCard
-                logo={animeData?.content.thumbNailImage}
-                title={animeData?.content.title}
-                subtitle={animeData?.content.subTitle}
-                onRefresh={() => refetch()}
+                testID={'landing-refresh-card'}
+                logo={animeData?.content.thumbNailImage ?? ''}
+                title={animeData?.content.title ?? ''}
+                subtitle={animeData?.content.subTitle ?? ''}
+                onRefresh={() => animeQuery?.refetch()}
               />
             </View>
           </View>
