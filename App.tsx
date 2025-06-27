@@ -5,16 +5,25 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
+import AppNavigation from './src/navigation/AppNavigation';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// initialize queryclient
+const queryClient = new QueryClient();
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
+      <StatusBar barStyle={'light-content'} />
+      <QueryClientProvider client={queryClient}>
+        {/* root navigation */}
+        <NavigationContainer>
+          <AppNavigation />
+        </NavigationContainer>
+      </QueryClientProvider>
     </View>
   );
 }
