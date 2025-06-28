@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../common/constants/colors.constants';
 
 const titleCardStyles = StyleSheet.create({
   root: {
-    backgroundColor: '#E5E5E5',
+    backgroundColor: colors.lightGrey,
     paddingVertical: 15,
   },
   imageStyles: { width: 100, height: 100, borderRadius: 10, margin: 10 },
@@ -25,11 +26,11 @@ const titleCardStyles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonContainer: {
-    backgroundColor: 'blue',
+    backgroundColor: colors.blue,
     borderRadius: 17,
   },
   textDefault: {
-    color: 'white',
+    color: colors.white,
     fontWeight: '400',
     paddingHorizontal: 15,
     paddingVertical: 5,

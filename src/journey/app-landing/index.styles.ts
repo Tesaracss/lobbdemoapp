@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { colors } from '../../common/constants/colors.constants';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -7,7 +8,7 @@ const landingScreenStyles = StyleSheet.create({
     margin: 20,
   },
   dateStyles: {
-    color: 'grey',
+    color: colors.grey,
     fontSize: 13,
     fontWeight: '500',
   },
@@ -25,13 +26,13 @@ const landingScreenStyles = StyleSheet.create({
     padding: 7,
   },
   vsContainer: {
-    backgroundColor: '#DCDCDC',
+    backgroundColor: colors.gainsboro,
     borderRadius: 25,
   },
   cardContainer: {
     borderRadius: 20,
-    backgroundColor: 'white',
-    shadowColor: '#000',
+    backgroundColor: colors.white,
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 6,

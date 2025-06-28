@@ -1,6 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './index.styles';
-import { HorizontalTitleCardProps } from '../../common/constants/screen.constants';
+import {
+  HorizontalTitleCardProps,
+  TEXT_CONSTANTS,
+} from '../../common/constants/screen.constants';
 
 /**
  * A horizontal card component that displays a logo, title, and subtitle,
@@ -20,8 +23,8 @@ const HorizontalTitleCard = ({
   title,
   subtitle,
   onRefresh,
-  buttonTitle = 'REFRESH',
-  buttonSubtitle = 'in App purchase',
+  buttonTitle = TEXT_CONSTANTS.BUTTON_TITLE,
+  buttonSubtitle = TEXT_CONSTANTS.BUTTON_SUBTITLE,
   testID = '',
 }: HorizontalTitleCardProps) => {
   // function to get the test id's prefixed with the provided testId

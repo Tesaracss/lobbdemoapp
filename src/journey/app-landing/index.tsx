@@ -7,16 +7,27 @@ import { Route } from '../../common/constants/navigation.constants';
 import { useContext } from 'react';
 import { AnimeContext } from '../../navigation/AppNavigation';
 import { formatDate } from '../../utils/dateformat';
+import ErrorFallback from '../../components/error-fallback';
+import { TEXT_CONSTANTS } from '../../common/constants/screen.constants';
 
 // App landing screen
 const AppLanding = () => {
   const navigation = useNavigation();
   const { animeQuery } = useContext(AnimeContext);
   const animeData = animeQuery?.data;
+  const isLoading = animeQuery?.isLoading;
+  const isError = animeQuery?.isError;
+
   return (
     <SafeAreaView>
-      {animeQuery?.isLoading ? (
-        <Text>Loading ...</Text>
+      {isLoading ? (
+        <Text>{TEXT_CONSTANTS.LOADING}</Text>
+      ) : isError ? (
+        <ErrorFallback
+          message={animeQuery?.error?.message}
+          onRetry={() => animeQuery?.refetch?.()}
+          testIDPrefix="anime-details"
+        />
       ) : (
         <View style={styles.root}>
           <Text style={styles.dateStyles} testID="date-text">
@@ -24,10 +35,10 @@ const AppLanding = () => {
           </Text>
           <View style={styles.dayContainer}>
             <View>
-              <Text style={styles.dayStyles}>Today</Text>
+              <Text style={styles.dayStyles}>{TEXT_CONSTANTS.TODAY}</Text>
             </View>
             <View style={styles.vsContainer}>
-              <Text style={styles.vsTextStyles}>VS</Text>
+              <Text style={styles.vsTextStyles}>{TEXT_CONSTANTS.VS}</Text>
             </View>
           </View>
           {/* card */}

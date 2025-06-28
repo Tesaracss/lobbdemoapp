@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../common/constants/colors.constants';
 
 const horizontalTileCardStyles = StyleSheet.create({
   root: {
@@ -21,11 +22,11 @@ const horizontalTileCardStyles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonStyle: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: colors.border,
     borderRadius: 17,
   },
   textDefault: {
-    color: '#0000CD',
+    color: colors.button,
     fontWeight: '700',
     paddingHorizontal: 10,
     paddingVertical: 3,
@@ -50,7 +51,7 @@ const horizontalTileCardStyles = StyleSheet.create({
   subtitleStyle: {
     fontSize: 10,
     fontWeight: '600',
-    color: 'grey',
+    color: colors.grey,
   },
 });
 

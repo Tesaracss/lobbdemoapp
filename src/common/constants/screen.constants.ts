@@ -45,3 +45,19 @@ export type AnimeItem = {
     mainImage: string;
   };
 };
+
+export const TEXT_CONSTANTS = {
+  LOADING: 'Loading...',
+  TODAY: 'Today',
+  VS: 'VS',
+  BUTTON_TITLE: 'REFRESH',
+  BUTTON_SUBTITLE: 'in App purchase',
+  ERROR_FALLBACK: {
+    DEFAULT_MESSAGE: 'Something went wrong',
+    RETRY_BUTTON: 'Retry',
+  },
+  HEADER: {
+    TAGLINE: 'MAJOR UPDATE',
+    TITLE: 'Only I Can Call My\nDream Stupid!',
+  },
+};

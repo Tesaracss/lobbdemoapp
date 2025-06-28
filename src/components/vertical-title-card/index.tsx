@@ -1,6 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './index.styles';
-import { VerticalTitleCardProps } from '../../common/constants/screen.constants';
+import {
+  TEXT_CONSTANTS,
+  VerticalTitleCardProps,
+} from '../../common/constants/screen.constants';
 
 /**
  * A vertical card component that displays a logo, title, and subtitle,
@@ -19,8 +22,8 @@ const VerticalTitleCard = ({
   title,
   subtitle,
   onRefresh,
-  buttonTitle = 'REFRESH',
-  buttonSubtitle = 'in App purchase',
+  buttonTitle = TEXT_CONSTANTS.BUTTON_TITLE,
+  buttonSubtitle = TEXT_CONSTANTS.BUTTON_SUBTITLE,
 }: VerticalTitleCardProps) => {
   return (
     <View style={styles.root}>

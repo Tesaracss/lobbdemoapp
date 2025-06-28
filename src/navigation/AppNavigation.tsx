@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AppLanding from '../screens/app-landing';
-import AnimeDetails from '../screens/anime-details';
+import AppLanding from '../journey/app-landing';
+import AnimeDetails from '../journey/anime-details';
 import { createContext } from 'react';
 import { Route } from '../common/constants/navigation.constants';
 import { useFetchAnimeDetail } from '../api-service/anime-service';

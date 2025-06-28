@@ -1,10 +1,11 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { colors } from '../../common/constants/colors.constants';
 
 const screenHeight = Dimensions.get('window').height;
 
 const animeDetailScreenStyles = StyleSheet.create({
   root: {
-    backgroundColor: '#f5f5f5', // fallback bg
+    backgroundColor: colors.primary, // fallback bg
     paddingBottom: '35%',
   },
   overlayContainer: {
@@ -23,20 +24,20 @@ const animeDetailScreenStyles = StyleSheet.create({
   tagline: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#ffffffaa', // semi-transparent white
+    color: colors.semiTransparentWhite, // semi-transparent white
     textTransform: 'uppercase',
   },
   title: {
     fontSize: 35,
     fontWeight: '700',
-    color: 'white',
+    color: colors.white,
   },
   closeButton: {
     position: 'absolute',
     top: 40,
     right: 20,
     zIndex: 20,
-    backgroundColor: '#DCDCDC',
+    backgroundColor: colors.gainsboro,
     width: 32,
     height: 32,
     borderRadius: 16,
@@ -52,9 +53,20 @@ const animeDetailScreenStyles = StyleSheet.create({
   },
   titleCardContainer: {
     paddingHorizontal: 30,
-    paddingVertical: 10,
-    borderBottomColor: '#D9D9D9',
+    paddingVertical: 15,
+    borderBottomColor: colors.border,
     borderBottomWidth: 2,
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  loaderText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: colors.loader,
   },
 });
 
