@@ -41,12 +41,12 @@ const HorizontalTitleCard = ({
           style={styles.imageStyles}
           resizeMode="cover"
         />
-        <View style={[styles.columnContainer, styles.textGap]}>
-          <Text style={styles.titleStyle} testID={getTestIdPrefix('title')}>
-            {title}
-          </Text>
-          <Text style={styles.subtitleStyle}>{subtitle}</Text>
-        </View>
+      </View>
+      <View style={[styles.textGap]}>
+        <Text style={styles.titleStyle} testID={getTestIdPrefix('title')}>
+          {title}
+        </Text>
+        <Text style={styles.subtitleStyle}>{subtitle}</Text>
       </View>
       <View style={[styles.buttonContainer]}>
         <TouchableOpacity

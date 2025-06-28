@@ -52,9 +52,14 @@ export const TEXT_CONSTANTS = {
   VS: 'VS',
   BUTTON_TITLE: 'REFRESH',
   BUTTON_SUBTITLE: 'in App purchase',
+
   ERROR_FALLBACK: {
     DEFAULT_MESSAGE: 'Something went wrong',
     RETRY_BUTTON: 'Retry',
+    NO_QUERY: 'No anime data found.',
+    NO_IMAGE: 'Image not available',
+    NO_TITLE: 'No title',
+    NO_DESCRIPTION: 'Description not available',
   },
   HEADER: {
     TAGLINE: 'MAJOR UPDATE',

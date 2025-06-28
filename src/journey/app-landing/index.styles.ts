@@ -5,7 +5,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const landingScreenStyles = StyleSheet.create({
   root: {
-    margin: 20,
+    padding: 20,
   },
   dateStyles: {
     color: colors.grey,
@@ -39,6 +39,7 @@ const landingScreenStyles = StyleSheet.create({
     elevation: 3, // for Android shadow
     overflow: 'hidden',
     marginVertical: 12,
+    // width: SCREEN_WIDTH * 0.9,
   },
   imageStyles: {
     width: '100%',
@@ -47,7 +48,8 @@ const landingScreenStyles = StyleSheet.create({
     borderTopRightRadius: 20,
   },
   titleCardContainer: {
-    padding: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 20,
   },
 });
 

@@ -68,6 +68,12 @@ const animeDetailScreenStyles = StyleSheet.create({
     fontSize: 16,
     color: colors.loader,
   },
+  htmlMissingText: {
+    padding: 16,
+    fontStyle: 'italic',
+    color: colors.red,
+    textAlign: 'center',
+  },
 });
 
 export default animeDetailScreenStyles;

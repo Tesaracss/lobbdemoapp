@@ -14,6 +14,15 @@ import { TEXT_CONSTANTS } from '../../common/constants/screen.constants';
 const AppLanding = () => {
   const navigation = useNavigation();
   const { animeQuery } = useContext(AnimeContext);
+  if (!animeQuery) {
+    return (
+      <ErrorFallback
+        message={TEXT_CONSTANTS.ERROR_FALLBACK.DEFAULT_MESSAGE}
+        onRetry={() => {}}
+        testIDPrefix="app-landing"
+      />
+    );
+  }
   const animeData = animeQuery?.data;
   const isLoading = animeQuery?.isLoading;
   const isError = animeQuery?.isError;
@@ -47,12 +56,18 @@ const AppLanding = () => {
               testID="image-card"
               onPress={() => navigation.navigate(Route.ANIME_DETAILS)}
             >
-              <Image
-                testID="main-image"
-                source={{ uri: animeData?.content.mainImage }}
-                style={styles.imageStyles}
-                resizeMode="cover"
-              />
+              {animeData?.content?.mainImage ? (
+                <Image
+                  testID="main-image"
+                  source={{ uri: animeData?.content.mainImage }}
+                  style={styles.imageStyles}
+                  resizeMode="cover"
+                />
+              ) : (
+                <Text testID="image-fallback">
+                  {TEXT_CONSTANTS.ERROR_FALLBACK.NO_IMAGE}
+                </Text>
+              )}
             </TouchableOpacity>
 
             <View style={styles.titleCardContainer}>
