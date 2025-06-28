@@ -32,6 +32,7 @@ const VerticalTitleCard = ({
           source={{ uri: logo }}
           style={styles.imageStyles}
           resizeMode="cover"
+          testID="vertical-logo"
         />
         <View style={[styles.columnContainer, styles.textGap]}>
           <Text style={styles.titleStyle}>{title}</Text>

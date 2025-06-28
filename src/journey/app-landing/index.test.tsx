@@ -28,23 +28,20 @@ const mockDetails = {
   },
 };
 
-// mock out query fetch data hook
-jest.mock('../../api-service/anime-service', () => ({
-  useFetchAnimeDetail: jest.fn(() => ({
-    data: mockDetails,
-    isLoading: false,
-    refetch: jest.fn(),
-  })),
-}));
-
 // mock the context values
 const mockRefreshDetails = jest.fn();
+let mockError = false;
+let mockLoading = false;
 jest.mock('../../navigation/AppNavigation', () => 'AnimeContext');
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useContext: jest.fn(() => ({
-    animeData: mockDetails,
-    setAnimeData: mockRefreshDetails,
+    animeQuery: {
+      data: mockDetails,
+      isLoading: mockLoading,
+      refetch: mockRefreshDetails,
+      isError: mockError,
+    },
   })),
 }));
 
@@ -81,5 +78,23 @@ describe("UT's for the landing screen ", () => {
     fireEvent.press(screen.getByTestId('image-card'));
     expect(mockNavigate).toHaveBeenCalled();
     expect(mockNavigate).toHaveBeenCalledWith(Route.ANIME_DETAILS);
+  });
+
+  it('check error message', () => {
+    // making query to return error
+    mockError = true;
+    render(<AppLAnding />);
+    // expect the error message
+    expect(screen.getByText('Something went wrong')).toBeTruthy();
+  });
+
+  it(' check loading message', () => {
+    // making query to return error
+    mockError = false;
+    // set loading true
+    mockLoading = true;
+    render(<AppLAnding />);
+    // expect the error message
+    expect(screen.getByText('Loading...')).toBeTruthy();
   });
 });

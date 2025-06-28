@@ -10,7 +10,23 @@ import { formatDate } from '../../utils/dateformat';
 import ErrorFallback from '../../components/error-fallback';
 import { TEXT_CONSTANTS } from '../../common/constants/screen.constants';
 
-// App landing screen
+/**
+ * AppLanding component renders the landing screen of the app.
+ *
+ * It fetches the anime data using the animeQuery from the AnimeContext.
+ * If the query is not available, it renders an error message.
+ * If the query is loading, it renders a loading message.
+ * If the query is an error, it renders an error message with a retry button.
+ * If the query is successful, it renders the landing screen with the anime
+ * data.
+ *
+ * The landing screen contains a card with an image, title, and subtitle.
+ * The card also contains a button to navigate to the anime details screen.
+ *
+ * The component also renders a date string on the top of the screen.
+ *
+ * @returns the JSX.Element for the landing screen
+ */
 const AppLanding = () => {
   const navigation = useNavigation();
   const { animeQuery } = useContext(AnimeContext);
@@ -33,7 +49,10 @@ const AppLanding = () => {
         <Text>{TEXT_CONSTANTS.LOADING}</Text>
       ) : isError ? (
         <ErrorFallback
-          message={animeQuery?.error?.message}
+          message={
+            animeQuery?.error?.message ??
+            TEXT_CONSTANTS.ERROR_FALLBACK.DEFAULT_MESSAGE
+          }
           onRetry={() => animeQuery?.refetch?.()}
           testIDPrefix="anime-details"
         />

@@ -1,103 +1,85 @@
-# Project Planning Document
+# Project Planning Document: Anime Demo App
 
-=====================================
+## Overview
 
-## Project Overview
+This project is a React Native demo application developed using the latest stable releases of React Native (v0.80.0) and TypeScript (v5.0.4). The application showcases multiple mobile development features, including navigation, API integration, and responsive UI components. It is intended as a reference or learning tool to demonstrate mobile development best practices using modern tools and libraries.
 
----
+## Structure
 
-This project is a React Native application, built using the latest version of React Native (0.80.0) and TypeScript (5.0.4). The application is designed to be a demo app, showcasing various features and functionalities.
+The project follows a modular and scalable directory structure:
 
-## Project Structure
-
----
-
-The project is structured as follows:
-
-- `lobbdemoapp/`: The root directory of the project.
-- `lobbdemoapp/src/`: The source code directory, containing all the application's code.
-- `lobbdemoapp/package.json`: The project's package file, containing metadata and dependencies.
-- `lobbdemoapp/App.tsx`: The main application file, containing the root component.
+- `lobbdemoapp/`
+  - `src/` # Application source code
+    - `components/` # Reusable UI components
+    - `journey/` # Screen components
+    - `navigation/` # Navigation stack configuration
+    - `services/` # API integration logic (e.g., Axios clients)
+    - `hooks/` # Custom React hooks
+    - `utils/` # Utility functions and constants
+  - `App.tsx` # Entry point of the app
+  - `package.json` # Project metadata and dependency definitions
+  - ... # Additional configs (e.g., tsconfig, .env)
 
 ## Dependencies
 
----
+The application uses the following core libraries:
 
-The project uses the following dependencies:
-
-- `react`: ^19.1.0
-- `react-native`: ^0.80.0
-- `@react-navigation/native-stack`: ^7.3.21
-- `@tanstack/react-query`: ^5.74.4
-- `@testing-library/react-native`: ^13.2.0
-- `axios`: ^1.9.0
-- `react-native-config`: ^1.5.5
-- `react-native-html-to-text`: ^0.0.5
-- `react-native-render-html`: ^6.3.4
-- `react-native-safe-area-context`: ^5.5.0
-- `react-native-screens`: ^4.11.1
-- `react-native-webview`: ^13.15.0
+- `react` (^19.1.0): Base library for building UIs
+- `react-native` (^0.80.0): Core React Native framework
+- `@react-navigation/native-stack` (^7.3.21): Stack navigation support
+- `@tanstack/react-query` (^5.74.4): API data fetching, caching, and sync
+- `axios` (^1.9.0): HTTP client for API requests
+- `react-native-safe-area-context` (^5.5.0): UI layout handling for safe areas
+- `react-native-webview` (^13.15.0): Displaying web content within the app
+- `react-native-render-html` (^6.3.4): Rendering HTML content in React Native
+- `react-native-config` (^1.5.5): Environment variable management
+- `@testing-library/react-native` (^13.2.0): UI testing utilities for React Native
 
 ## Features
 
----
+The application will include the following functionalities:
 
-The project plans to implement the following features:
-
-- A home screen with a list of anime titles
-- A details screen for each anime title, displaying information such as title, description, and images
-- A search bar to search for anime titles
-- A favorites screen to display the user's favorite anime titles
-- A settings screen to configure the application's settings
+- Home Screen: Displays a single anime title card.
+- Detail Screen: Shows comprehensive information about a selected anime.
 
 ## Technical Requirements
 
----
+- Built with React Native (0.80.0) and TypeScript (5.0.4).
+- Uses functional components and React Hooks.
+- Implements type safety and modular architecture.
+- Adopts React Query for API state management.
+- Supports both Android and iOS platforms.
+- Unit and UI tests implemented using Jest and React Testing Library.
+- Complies with accessibility standards and responsive design principles.
 
-- The application should be built using React Native and TypeScript
-- The application should use the latest version of React Native and TypeScript
-- The application should use a consistent coding style throughout
-- The application should be tested using Jest and React Testing Library
-- The application should be deployed to both Android and iOS platforms
+## Timeline & Milestones
 
-## Timeline
+Estimated timeline: 2 days (24 hours).
 
----
-
-The project is expected to take approximately 6 weeks to complete, with the following milestones:
-
-- Week 1: Set up the project structure and dependencies
-- Week 2-3: Implement the home screen and anime details screen
-- Week 4-5: Implement the search bar and favorites screen
-- Week 6: Implement the settings screen and deploy the application to both Android and iOS platforms
+- Day 1: Project scaffolding and navigation setup, UI component design, API services setup.
+- Day 2: Screen setup, functionality, error handling with testing.
 
 ## Resources
 
----
-
-- React Native documentation: <https://reactnative.dev/docs/getting-started>
-- TypeScript documentation: <https://www.typescriptlang.org/docs/>
-- Jest documentation: <https://jestjs.io/docs/en/getting-started>
-- React Testing Library documentation: <https://testing-library.com/docs/react-native-testing-library/intro>
+- React Native: https://reactnative.dev
+- TypeScript: https://www.typescriptlang.org
+- Jest: https://jestjs.io/docs/en/getting-started
+- React-Native-Testing-Library: https://testing-library.com/docs/react-native-testing-library/intro
 
 ## Assumptions
 
----
+- Development team is experienced with React Native and TypeScript.
+- Tools such as emulators, IDEs, and CLI tools are pre-installed.
+- APIs for anime data are accessible and stable.
+- Developers follow established coding conventions.
 
-- The project assumes that the developer has prior experience with React Native and TypeScript
-- The project assumes that the developer has access to the necessary resources and tools to complete the project
-- The project assumes that the developer will follow the project's coding style and conventions
+## Risks & Mitigations
 
-## Risks
-
----
-
-- The project may encounter technical difficulties or issues with the dependencies
-- The project may require additional time or resources to complete
-- The project may not meet the expected quality or functionality standards
+- Library conflicts: Lock dependencies early and test integration.
+- Implementation delays: Include buffer time.
+- API changes: Use schema validation and fallback UIs.
+- Platform inconsistencies: Test regularly on Android and iOS.
 
 ## Conclusion
 
----
-
-This project planning document outlines the project's goals, features, technical requirements, timeline, resources, assumptions, and risks. The project aims to create a demo React Native application with various features and functionalities, using the latest version of React Native and TypeScript.
+This document outlines the scope, structure, and execution plan for the React Native Anime Demo App. Following best practices and adhering to milestones will ensure successful delivery of a cross-platform, feature-rich mobile application.

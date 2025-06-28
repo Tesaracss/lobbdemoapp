@@ -5,6 +5,7 @@ import { createContext } from 'react';
 import { Route } from '../common/constants/navigation.constants';
 import { useFetchAnimeDetail } from '../api-service/anime-service';
 
+// AnimeContext holds the data, loading state and error state of the anime details API
 type AnimeContextType = {
   animeQuery: ReturnType<typeof useFetchAnimeDetail> | undefined;
 };

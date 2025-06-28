@@ -6,7 +6,6 @@ const horizontalTileCardStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // flexWrap: 'wrap', // Allows wrapping to avoid overflow
   },
   imageStyles: {
     width: '100%',
