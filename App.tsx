@@ -6,10 +6,11 @@
  */
 
 import { StatusBar, StyleSheet, View } from 'react-native';
-import AppNavigation from './src/navigation/AppNavigation';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Provider } from 'react-redux';
+import { store } from './src/state-management/store';
+import Root from './src/navigation/Root';
 
 // initialize queryclient
 const queryClient = new QueryClient();
@@ -18,12 +19,11 @@ function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={'light-content'} />
-      <QueryClientProvider client={queryClient}>
-        {/* root navigation */}
-        <NavigationContainer>
-          <AppNavigation />
-        </NavigationContainer>
-      </QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <Root />
+        </QueryClientProvider>
+      </Provider>
     </View>
   );
 }
